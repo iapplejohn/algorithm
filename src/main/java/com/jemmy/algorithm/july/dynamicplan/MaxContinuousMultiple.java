@@ -1,6 +1,6 @@
 /*
  * Copyright (C), 2014-2017, 杭州盎然科技有限公司
- * FileName: MaxContinousMultiple.java
+ * FileName: MaxContinuousMultiple.java
  * Author:   Cheng Zhujiang
  * Date:     2017/7/7 9:43
  * Description: 
@@ -16,7 +16,7 @@ package com.jemmy.algorithm.july.dynamicplan;
  * @author Cheng Zhujiang
  * @date 2017/7/7
  */
-public class MaxContinousMultiple {
+public class MaxContinuousMultiple {
 
     /**
      * 或许，读者初看此题，可能立马会想到用最简单粗暴的方式：两个for循环直接轮询。
@@ -31,7 +31,7 @@ public class MaxContinousMultiple {
 
         for (int i = 0; i < n; i++) {
             double temp = 1; // arr[i]
-            for (int j = i; j < n; j++) { // i+1
+            for (int j = i + 1; j < n; j++) { // i+1
                 temp *= arr[j];
                 if (temp > max) {
                     max = temp;
@@ -68,14 +68,14 @@ public class MaxContinousMultiple {
         double[] arr = {-2.5, 4, 0, 3, 0.5, 8, -1};
         double max = fetchViaLoopAndLoop(arr);
         System.out.println(max);
-        double max2 = fetchViaDynamic(arr);
-        System.out.println(max2);
-
-        double maxN_1ViaLoop = fetchMaxN_1ResultViaLoopAndLoop(arr);
-        System.out.println(maxN_1ViaLoop);
-
-        double maxN_1 = fetchMaxN_1Result(arr);
-        System.out.println(maxN_1);
+//        double max2 = fetchViaDynamic(arr);
+//        System.out.println(max2);
+//
+//        double maxN_1ViaLoop = fetchMaxN_1ResultViaLoopAndLoop(arr);
+//        System.out.println(maxN_1ViaLoop);
+//
+//        double maxN_1 = fetchMaxN_1Result(arr);
+//        System.out.println(maxN_1);
     }
 
     // 方法复杂度为O(n ^ 2)

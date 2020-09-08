@@ -20,22 +20,36 @@ import java.util.Arrays;
  * <p>
  * 下面是问题的正规描述： 现有n个红白蓝三种不同颜色的小球，乱序排列在一起，请通过两两交换任意两个球，使得从左至右，依次是一些红球、一些白球、一些蓝球。
  *
+ * 二分思想：以G为中心，R往前扔（无序开始位置），B往后扔（无序结束位置）
+ *
+ * 往前扔：无序位置往后挪一位；往后扔，无序结束位置往后挪一位
+ *
+ * 三个位置：无序开始、当前位置、无序结束
+ *
+ * 循环开始：无序开始位置 = 当前位置 = 0
+ *
+ * 循环结束：当前位置 = 无序结束位置
+ *
  * @author Cheng Zhujiang
  * @date 2017/7/6
  */
 public class DutchNationalFlag {
 
-    static void sort(int[] arr) {
-        int begin = 0, current = 1, end = arr.length - 1;
+    private static void sort(int[] arr) {
+        // begin: 无序开始下标，初始值为数组开始
+        // current: 当前指针，初始值为0，为什么不能为1？当第一个元素值为2，后续元素值为1或2的时候，第一个元素的2不会被交换
+        // end: 无序结束下标，初始值为数组末尾
+        int begin = 0, current = 0, end = arr.length - 1;
 
         while (current <= end) {
+            // 值为0，交换当前指针和无序开始下标的元素，无序开始下标都自增，当前指针自增?因为交换过来的元素只可能是1
             if (arr[current] == 0) {
                 swap(arr, begin, current);
                 begin++;
                 current++;
             } else if (arr[current] == 1) {
                 current++;
-            } else {
+            } else { // 值为2，交换当前指针和无序结束下标的元素，无序结束下标自减，为什么当前指针不自增，因为交换过来的元素可能不合格
                 swap(arr, end, current);
                 end--;
             }
@@ -51,7 +65,8 @@ public class DutchNationalFlag {
     }
 
     public static void main(String[] args) {
-        int[] arr = { 2, 1, 0, 2, 0, 0, 1, 2 };
+        //int[] arr = { 2, 1, 0, 2, 0, 0, 1, 2 };
+        int[] arr = { 2, 1, 1, 2 };
         sort(arr);
     }
 }

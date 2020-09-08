@@ -8,7 +8,8 @@
 package com.jemmy.algorithm.july;
 
 /**
- * AllPermutation
+ * 写一个函数, 如 foo(String str), 打印出 str 的全排列,
+ * 如 abc 的全排列: abc, acb, bca, dac, cab, cba
  *
  * @author Cheng Zhujiang
  * @date 2017/7/3

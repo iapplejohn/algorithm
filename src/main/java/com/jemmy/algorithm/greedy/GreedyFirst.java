@@ -50,7 +50,7 @@ public class GreedyFirst {
     }
 
     public static void main(String[] args) {
-        int a = 105;
+        int a = 169;
         lookForViaGreed(a);
     }
 

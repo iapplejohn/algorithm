@@ -32,7 +32,7 @@ public class RGBSort {
     private static void sort(char[] arr) {
         int begin = 0, current = 0, end = arr.length -1;
 
-        while (current < end) {
+        while (current <= end) {
             if (arr[current] == 'R') {
                 swap(arr, current, begin);
                 begin++;

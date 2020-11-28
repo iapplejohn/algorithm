@@ -44,6 +44,8 @@ public class HouseFund {
 
     /**
      * 近12个月: 41,255.11 36,618.69 32,733.01 28,545.52 24,385.51 20,252.95 16,147.87 12,070.24 8,020.09 6,229.00 6,229.00 6,229.00
+     * 16,147.87 12,070.24 8,020.09 6,229.00 6,229.00 6,229.00 12,457.00 18,685.00 25,123.40 32,163.40 39,203.40 46,243.40
+     * 10081.82 11761.82 13441.82 15121.82 16801.82 18481.82 20161.82 21841.82 23710.5 25390.5 27070.5 28750.5
      *
      * @param args
      */
@@ -59,6 +61,8 @@ public class HouseFund {
         BigDecimal bdSum = new BigDecimal(0);
         BigDecimal bdCur = new BigDecimal(array[11].replace(",", ""));
         BigDecimal bdIncr = new BigDecimal(incr);
+
+        // 最近12个月末余额总和 / 12 * 15 = 500000，得出余额总和目标为 400000
         BigDecimal bdTarget = new BigDecimal(400000);
         for (String balance : array) {
             BigDecimal prevBalance = new BigDecimal(balance.replace(",", ""));

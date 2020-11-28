@@ -62,5 +62,28 @@ public class ReverseLinkdList_206 {
         return p;
     }
 
-    // 方案2：迭代
+    public ListNode reverseListTwo(ListNode head) {
+        // 方案2：迭代
+
+        if (head == null) {
+            return null;
+        }
+
+        // 初始化: head 为 下一个节点，tail 为第一个节点
+        ListNode tail = head;
+        head = head.next;
+
+        tail.next = null;
+
+        while (head != null) {
+            ListNode temp = head.next;
+            head.next = tail;
+
+            tail = head;
+            head = temp;
+        }
+
+        // head 为 null，需要返回前一个节点 tail
+        return tail;
+    }
 }

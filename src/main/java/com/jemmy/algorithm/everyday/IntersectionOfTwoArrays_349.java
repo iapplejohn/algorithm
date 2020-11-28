@@ -158,7 +158,7 @@ public class IntersectionOfTwoArrays_349 {
     }
 
     public int[] intersectionFive(int[] nums1, int[] nums2) {
-        // 方案5：排序 + 双指针 : 超出时间限制
+        // 方案5：排序 + 双指针
         // 时间复杂度：O(nlogn)
         // 空间复杂度：O(n)
 
@@ -174,6 +174,9 @@ public class IntersectionOfTwoArrays_349 {
         while (i < nums1.length && j < nums2.length) {
             if (nums1[i] == nums2[j]) {
                 set.add(nums1[i]);
+                // i和j都要自增，否则超出时间限制
+                i++;
+                j++;
             } else if (nums1[i] < nums2[j]) {
                 i++;
             } else {
